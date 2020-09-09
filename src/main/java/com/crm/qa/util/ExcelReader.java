@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-
+import org.apache.poi.ss.format.CellFormatType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -65,6 +65,7 @@ public class ExcelReader {
 			String s=sheet.getSheetName();
 			int number=sheet.getLastRowNum();
 			return number;
+			
 		}
 	}
 	
@@ -115,6 +116,8 @@ public class ExcelReader {
 		{
 			return cell.getStringCellValue();
 		}
+		
+		
 	}
 
 	public boolean setCellData(String sheetname,String colname,int rowNum,String data,String path) throws FileNotFoundException

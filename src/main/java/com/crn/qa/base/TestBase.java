@@ -11,13 +11,51 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
+
 import com.crm.qa.config.*;
+import com.crm.qa.util.Constants;
 
 public class TestBase {
 	
 	public static Properties prop;
 	public static WebDriver driver;
 	private static Logger log= Logger.getLogger(TestBase.class);
+	
+	
+	@Parameters({"browser","url"})
+	@BeforeClass
+	public void Initalize(@Optional String browser,@Optional String url) throws InterruptedException
+	{
+		DesiredCapabilities dc; 
+		ChromeOptions opt1 = new ChromeOptions();
+		if(browser.equals(Constants.Chrome))
+		{ 
+			dc= new DesiredCapabilities();
+//			opt1.setAcceptInsecureCerts(true);
+			dc.setAcceptInsecureCerts(true);
+			//opt1.addArguments("--headless");
+			System.setProperty("webdriver.chrome.driver", "D:\\Selenium WorkSpace\\CRMProject\\chromedriver.exe");
+			driver= new ChromeDriver(dc);
+		}
+//		else if(browser.equals(browser))
+//		{
+//			
+//		}
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(Constants.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Constants.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		
+		driver.get(url);
+//		WebDriverWait wait = new WebDriverWait(driver, 20);
+//		wait.until(ExpectedConditions.visibilityOf(driver.findElement(By.xpath("//img[conatins(@class,'img-responsive"))));
+	}
 	
 	public TestBase() throws IOException
 	{
@@ -39,30 +77,7 @@ public class TestBase {
 		}
 	}
 	
-	public void initalization() throws InterruptedException
-	{
-		String browserName = prop.getProperty("browser");
-		
-		if(browserName.equals("chrome")){
-			System.setProperty("webdriver.chrome.driver", "D:\\eclipse\\chromedriver.exe");	
-			driver = new ChromeDriver(); 
-			
-		}
-//		else if(browserName.equals("FF")){
-//			System.setProperty("webdriver.gecko.driver", "/Users/naveenkhunteta/Documents/SeleniumServer/geckodriver");	
-//			driver = new FirefoxDriver(); 
-//		}
 
-		driver.get("http://demo.guru99.com/test/newtours/");
-		Thread.sleep(5);
-		
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		
-		
-	}
 	
 	public WebElement getObject(String xpath)
 	{

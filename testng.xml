@@ -6,10 +6,11 @@
 		<listener class-name="com.qa.ExtentReportListener.ExtentReporterNG" />
 	</listeners>   -->
 
-
+	<parameter name="browser" value="chrome"/>
+	<parameter name="url" value="https://classic.crmpro.com/"/>
 	<test name="Free CRM App">
 		<classes>
-			<class name="com.crn.qa.testcases.LoginPageTest"></class>
+			<class name="com.crm.qa.testcases.LoginPageTest"></class>
 		
 		</classes>
 	</test>

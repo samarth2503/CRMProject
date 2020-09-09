@@ -1,4 +1,4 @@
-package com.org.TestngAttributes;
+package com.crm.qa.testng;
 
 import org.testng.annotations.Test;
 

@@ -24,7 +24,7 @@ public class hashMap {
 		obj[1][0]= h3;
 		h3.put("firstname","Sammy");
 		obj[2][0]= h3;
-		Map<Object,Object> h2 = obj;
+		Map<Object,Object> h2 ;
 		al = new ArrayList<String>();
 		al.add("A");
 		al.add("B");

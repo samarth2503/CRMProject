@@ -23,16 +23,16 @@ public class OTPHandler {
 	{
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\ADMIN\\Desktop\\Apachae.po\\chromedriver.exe");
 		driver = new ChromeDriver();
-		driver.navigate().to("http://newtours.demoaut.com/");
+		driver.navigate().to("https://www.myntra.com/");
 		driver.manage().window().maximize();
 		driver.manage().timeouts().pageLoadTimeout(50, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		
-		driver.findElement(By.cssSelector("a#nav-link-accountList>span>span")).click();
-		driver.findElement(By.linkText("Start here")).click();
+//		driver.findElement(By.cssSelector("a#nav-link-accountList>span>span")).click();
+//		driver.findElement(By.linkText("Start here")).click();
 		
-		driver.findElement(By.xpath("//input[@name=\"customerName\"]")).sendKeys("Harsh");
-		driver.findElement(By.xpath("//i[@class=\"a-icon a-icon-dropdown\"]")).click();
+//		driver.findElement(By.xpath("//input[@name=\"customerName\"]")).sendKeys("Harsh");
+//		driver.findElement(By.xpath("//i[@class=\"a-icon a-icon-dropdown\"]")).click();
 		
 		driver.findElement(By.xpath("//ul[@role=\"application\"]//li//a[contains(text(),\"United States +1\")]")).click();
 		driver.findElement(By.xpath("//input[@placeholder=\"Mobile number\"]")).sendKeys("2055066615");

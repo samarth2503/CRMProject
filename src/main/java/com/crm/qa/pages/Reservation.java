@@ -6,8 +6,8 @@ import com.crn.qa.base.TestBase;
 
 public class Reservation extends TestBase {
 	
-	rs= new Reservation();
-	lp= new LoginPage();
+	Reservation rs= new Reservation();
+	LoginPage lp= new LoginPage();
 	
 	public Reservation() throws IOException, InterruptedException
 	{
@@ -18,7 +18,7 @@ public class Reservation extends TestBase {
 	
 	public void verifyTitleTest()
 	{
-		String str = 
+		String str = "abc";
 	}
 	
 	
